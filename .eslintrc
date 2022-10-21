@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": [
+    "plugin:jest-dom/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:testing-library/react"
+  ],
+  "overrides": [
+    {
+      "files": ["*.test.tsx"],
+      "env": {
+        "node": true,
+        "commonjs": true,
+        "browser": true,
+        "jest": true
+      }
+    }
+  ],
+  "plugins": ["react-hooks", "jest-dom", "testing-library"],
+  "rules": {
+    "prettier/prettier": "off"
+  }
+}
