@@ -14,7 +14,7 @@ describe('useTemplateName', () => {
     const view = render(<TemplateNameTest />);
     const node = screen.getByTestId('obj');
     expect(node).toBeInTheDocument();
-    expect(node.textContent).toBe('{}');
+    expect(node).toHaveTextContent('{}');
     view.unmount();
   });
 });

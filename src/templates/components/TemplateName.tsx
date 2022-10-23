@@ -4,13 +4,13 @@ import styles from './TemplateName.module.css';
 
 type Props = {};
 
-export const TemplateName: React.FC<TemplateNameProps> = props => {
+export const TemplateName: React.FC<TemplateNameProps> = ({ className, ...props }) => {
   React.useEffect(() => {
-    console.log(props);
+    console.log('Hello World!');
   }, []);
 
   return (
-    <div className={styles.templateName__base} data-testid="TemplateName">
+    <div className={styles.templateName__base} data-testid="TemplateName" {...props}>
       TemplateName works!
     </div>
   );

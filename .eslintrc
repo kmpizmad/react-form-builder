@@ -1,9 +1,17 @@
 {
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
   "parser": "babel-eslint",
   "parserOptions": {
+    "tsconfigRootDir": "./",
+    "project": "./tsconfig.json",
     "sourceType": "module"
   },
   "extends": [
+    "plugin:import/recommended",
     "plugin:jest-dom/recommended",
     "plugin:react-hooks/recommended",
     "plugin:testing-library/react"
@@ -19,8 +27,37 @@
       }
     }
   ],
-  "plugins": ["react-hooks", "jest-dom", "testing-library"],
+  "plugins": ["import", "react-hooks", "jest-dom", "testing-library"],
   "rules": {
-    "prettier/prettier": "off"
+    "prettier/prettier": "off",
+    "import/named": "off",
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "@components/**",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "@hooks/**",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "@interfaces/**",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "./*.module.css",
+            "group": "sibling",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
   }
 }
