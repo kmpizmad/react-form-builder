@@ -1,8 +1,8 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { TemplateName as Component, TemplateNameProps as ComponentProps } from './TemplateName';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { TemplateName as Component } from './TemplateName';
 
-const meta: Meta = {
+const meta: ComponentMeta<typeof Component> = {
   title: 'TemplateName',
   component: Component,
   argTypes: {
@@ -19,7 +19,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<ComponentProps> = args => <Component {...args} />;
+const Template: ComponentStory<typeof Component> = args => <Component {...args} />;
 
 export const TemplateName = Template.bind({});
 TemplateName.args = {};
